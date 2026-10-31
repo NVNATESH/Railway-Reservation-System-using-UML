@@ -111,7 +111,7 @@ Source: [`diagrams/class-diagram/design-class-diagram.mdj`](diagrams/class-diagr
 
 ```mermaid
 classDiagram
-  class "UserAccount" {
+  class UserAccount {
     +userId: String
     +username: String
     +passwordHash: String
@@ -119,7 +119,7 @@ classDiagram
     +verifyCredentials()
     +updateProfile()
   }
-  class "Passenger" {
+  class Passenger {
     +passengerId: String
     +name: String
     +age: int
@@ -129,7 +129,7 @@ classDiagram
     +register()
     +updateProfile()
   }
-  class "Ticket" {
+  class Ticket {
     +pnr: String
     +bookingDate: Date
     +travelDate: Date
@@ -138,41 +138,41 @@ classDiagram
     +cancel()
     +issue()
   }
-  class "Payment" {
+  class Payment {
     +paymentId: String
     +amount: double
     +gatewayTxnId: String
     +status: String
     +process()
   }
-  class "PaymentGateway" {
+  class PaymentGateway {
     +providerName: String
     +apiEndpoint: String
     +authorizePayment()
     +processRefund()
   }
-  class "TravelerDetails" {
+  class TravelerDetails {
     +travelerId: String
     +name: String
     +age: int
     +assignedBerth: String
     +assignBerth()
   }
-  class "Schedule" {
+  class Schedule {
     +routeId: String
     +source: String
     +destination: String
     +departureTime: DateTime
     +getStops()
   }
-  class "Train" {
+  class Train {
     +trainNo: String
     +trainName: String
     +type: String
     +totalCapacity: int
     +getAvailability()
   }
-  class "SeatInventory" {
+  class SeatInventory {
     +inventoryId: String
     +date: Date
     +classType: String
@@ -180,7 +180,7 @@ classDiagram
     +holdSeat()
     +releaseSeat()
   }
-  class "Refund" {
+  class Refund {
     +refundId: String
     +refundAmount: double
     +penalty: double
@@ -188,14 +188,14 @@ classDiagram
     +calculateRefund()
     +process()
   }
-  "UserAccount" "1" -- "1" "Passenger"
-  "Passenger" "1" -- "0..*" "Ticket"
-  "Ticket" "1" -- "1" "Payment"
-  "Ticket" "1" -- "1..*" "TravelerDetails"
-  "Ticket" "1" -- "0..1" "Refund"
-  "Payment" "0..*" -- "1" "PaymentGateway"
-  "Schedule" "1" -- "1" "Train"
-  "Train" "1" -- "0..*" "SeatInventory"
+  UserAccount "1" -- "1" Passenger
+  Passenger "1" -- "0..*" Ticket
+  Ticket "1" -- "1" Payment
+  Ticket "1" -- "1..*" TravelerDetails
+  Ticket "1" -- "0..1" Refund
+  Payment "0..*" -- "1" PaymentGateway
+  Schedule "1" -- "1" Train
+  Train "1" -- "0..*" SeatInventory
 ```
 
 <details>
@@ -203,13 +203,13 @@ classDiagram
 
 ```mermaid
 classDiagram
-  class "UserAccount" {
+  class UserAccount {
     +userId
     +username
     +passwordHash
     +role
   }
-  class "Passenger" {
+  class Passenger {
     +passengerId
     +name
     +age
@@ -217,61 +217,61 @@ classDiagram
     +phone
     +aadhaar
   }
-  class "Ticket" {
+  class Ticket {
     +pnr
     +bookingDate
     +travelDate
     +totalFare
     +status
   }
-  class "Payment" {
+  class Payment {
     +paymentId
     +amount
     +gatewayTxnId
     +status
   }
-  class "PaymentGateway" {
+  class PaymentGateway {
     +providerName
     +apiEndpoint
   }
-  class "TravelerDetails" {
+  class TravelerDetails {
     +travelerId
     +name
     +age
     +assignedBerth
   }
-  class "Schedule" {
+  class Schedule {
     +routeId
     +source
     +destination
     +departureTime
   }
-  class "Train" {
+  class Train {
     +trainNo
     +trainName
     +type
     +totalCapacity
   }
-  class "SeatInventory" {
+  class SeatInventory {
     +inventoryId
     +date
     +classType
     +availableSeats
   }
-  class "Refund" {
+  class Refund {
     +refundId
     +refundAmount
     +penalty
     +status
   }
-  "UserAccount" "1" -- "1" "Passenger"
-  "Passenger" "1" -- "0..*" "Ticket"
-  "Ticket" "1" -- "1" "Payment"
-  "Ticket" "1" -- "1..*" "TravelerDetails"
-  "Ticket" "1" -- "0..1" "Refund"
-  "Payment" "0..*" -- "1" "PaymentGateway"
-  "Schedule" "1" -- "1" "Train"
-  "Train" "1" -- "0..*" "SeatInventory"
+  UserAccount "1" -- "1" Passenger
+  Passenger "1" -- "0..*" Ticket
+  Ticket "1" -- "1" Payment
+  Ticket "1" -- "1..*" TravelerDetails
+  Ticket "1" -- "0..1" Refund
+  Payment "0..*" -- "1" PaymentGateway
+  Schedule "1" -- "1" Train
+  Train "1" -- "0..*" SeatInventory
 ```
 
 </details>
