@@ -30,7 +30,14 @@ The design covers **five core passenger-facing flows**:
 | 4 | 💳 **Payment & Billing** | Gateway authorization (Razorpay / Stripe / Paytm), e-ticket & invoice generation |
 | 5 | ❌ **Ticket Cancellation** | Cancellation rules, partial cancellation, refund calculation & processing |
 
-> **28 StarUML models** · 12 UML diagram types · every diagram documented below with a rendered preview.
+> **28 StarUML models** · 12 UML diagram types · **every diagram rendered below** — no tool needed to read them.
+
+## 📚 Documentation
+
+| Document | Contents |
+|----------|----------|
+| 📖 [OOAD Report](docs/ooad-report.md) | Full analysis & design documentation — requirements, domain analysis, architecture, traceability matrix |
+| 📋 [Use-Case Specifications](docs/use-case-specifications.md) | Detailed specs for all five flows — actors, main flows, alternate flows, pre/postconditions |
 
 ## 📂 Repository Structure
 
@@ -39,6 +46,9 @@ Railway Reservation System _OOAD_Project/
 ├── README.md                        ← you are here
 ├── LICENSE
 ├── .gitignore
+├── docs/
+│   ├── ooad-report.md               # analysis & design documentation
+│   └── use-case-specifications.md   # detailed specs for the 5 flows
 └── diagrams/
     ├── use-case/                    # 5 — actors & system responsibilities per flow
     ├── domain-model/                # 1 — conceptual domain classes (project-wide)
@@ -771,6 +781,354 @@ flowchart TB
 
 </details>
 
+### 🔃 System & Detailed Sequence Diagrams
+
+<details>
+<summary><b>❌ System — Ticket Cancellation</b> — <code>diagrams/sequence/system/ticket-cancellation.mdj</code></summary>
+
+```mermaid
+sequenceDiagram
+  actor P1 as Passenger
+  participant P2 as CancellationSystem
+  P1->>P2: requestTicketCancellation(PNR)
+  P2-->>P1: displayCancellationFromforConfirmation(details)
+  P1->>P2: confirmCancellation()
+  P2-->>P1: showCancellationSuccess_withRefundDetails()
+  P2-->>P1: ShowCancellationErrorMessage()
+```
+
+</details>
+
+<details>
+<summary><b>💳 System — Payment</b> — <code>diagrams/sequence/system/payment.mdj</code></summary>
+
+```mermaid
+sequenceDiagram
+  actor P1 as Passenger
+  participant P2 as paymentSystem
+  P1->>P2: selectMethodAndinitiateProcess(booking,method))
+  P2->>P2: fetch amount
+  P2->>P1: requestDetails(amount)
+  P1->>P2: submitDetails(cardData)
+  P2->>P1: Dispaly Payment success and send E-Ticket
+  P2->>P1: Display payment error details
+```
+
+</details>
+
+<details>
+<summary><b>🔍 System — Train Enquiry</b> — <code>diagrams/sequence/system/train-enquiry.mdj</code></summary>
+
+```mermaid
+sequenceDiagram
+  actor P1 as passenger
+  participant P2 as System
+  P1->>P2: enterEnquiryCriteria("DEL to BOM")
+  P2-->>P1: promptforConnectionPreference(results)
+  P1->>P2: enterConnectionPreference("DEL , connected BCT"))
+  P2->>P1: displayTrainListAndSchedules(results)
+  P2->>P1: displayNoTrainFoundMessage()
+```
+
+</details>
+
+<details>
+<summary><b>👤 System — User Registration (v1)</b> — <code>diagrams/sequence/system/user-registration-v1.mdj</code></summary>
+
+```mermaid
+sequenceDiagram
+  actor P1 as User
+  participant P2 as RegistrationForm
+  participant P3 as RegistratioinContoller
+  participant P4 as PassengerDAO
+  P1->>P2: Submits Registration Details
+  P2->>P3: initiates Registration
+  P3->>P3: Process And Validates
+  P3->>P4: check for Existing User
+  P4-->>P3: user Status
+  P3->>P4: Create New Passenger
+  P4-->>P3: saveSuccessStatus
+  P3->>P2: ShowRegistrationSuccess
+  P2->>P1: DisplaySuccessMessage
+  P3->>P2: Show Exists Error
+  P2->>P1: Display Error Message
+```
+
+</details>
+
+<details>
+<summary><b>👤 System — User Registration (v2)</b> — <code>diagrams/sequence/system/user-registration-v2.mdj</code></summary>
+
+```mermaid
+sequenceDiagram
+  actor P1 as User
+  participant P2 as Registration Form
+  participant P3 as Registration Controller
+  participant P4 as PassengerDAO
+  P1->>P2: Submit Details
+  P2->>P3: Process Registration
+  P3->>P3: Check for Existing User
+  P3->>P4: Check for Existing User
+  P4-->>P3: User Status
+  P3->>P4: Create Passenger Record
+  P4-->>P3: Record Created
+  P3->>P2: Show Registration Success
+  P2->>P1: Display Success Message
+  P3->>P2: Show User Exists Error
+  P2->>P1: Display Error Message
+```
+
+</details>
+
+<details>
+<summary><b>🎫 Detailed — Ticket Booking (32 messages)</b> — <code>diagrams/sequence/detailed/ticket-booking.mdj</code></summary>
+
+```mermaid
+sequenceDiagram
+  actor P1 as Passenger
+  participant P2 as BookingScreen
+  participant P3 as BookingController
+  participant P4 as Train
+  participant P5 as Payment
+  participant P6 as Ticket
+  P1->>P2: searchTrain(source, destination, date)
+  P2-->>P1: displayTrainList() 2a. showList
+  P1->>P2: selectTrain(trainId)
+  P1->>P2: enterPassengerDetails(details)
+  P2->>P3: processBooking(trainId, details)
+  P3->>P4: checkSeatAvailability(trainId)
+  P4-->>P3: availableSeats
+  P3->>P4: calculateFare()
+  P4-->>P3: fareAmount
+  P3-->>P2: displayFare(fareAmount)
+  P2-->>P1: showFare(fareAmount)
+  P1->>P2: confirmBooking()
+  P2->>P3: initiatePayment(fareAmount)
+  P3->>P5: processPayment(amount)
+  P5-->>P3: paymentResult(success/failure)
+  P3->>P5: confirmSeatReservation(details)
+  P5-->>P3: seatReserved
+  P3->>P6: generateTicket(details)
+  P6-->>P3: ticketGenerated(PNR)
+  P3->>P6: saveTicket(PTNR)
+  P6-->>P3: ticketConfirmationData(PNR)
+  P3-->>P2: displayTicket(PNR)
+  P2-->>P1: showTicket(PNR)
+  P3->>P6: sendConfirmation(PNR)
+  P5->>P6: printTicket(PNR)
+  P1->>P2: selectPrintTicket()
+  P6-->>P5: printJobSent
+  P2->>P3: printTicket(PNR)
+  P3->>P2: paymentFailed()
+  P2-->>P1: displayPaymentFailure() 30a. showPaymentFailure()
+  P3->>P2: displayNoSeatsAvailable()
+  P2-->>P1: showNoSeats()
+```
+
+</details>
+
+<details>
+<summary><b>❌ Detailed — Cancellation & Refund (25 messages)</b> — <code>diagrams/sequence/detailed/ticket-cancellation-refund.mdj</code></summary>
+
+```mermaid
+sequenceDiagram
+  actor P1 as Passenger
+  participant P2 as CancellationScreen
+  participant P3 as CancellationController
+  participant P4 as Ticket
+  participant P5 as RefundService
+  participant P6 as PaymentGateway
+  participant P7 as NotificationService
+  P1->>P2: enterPNR(pnr)
+  P2-->>P1: displayTicketDetails(ticketInfo)
+  P1->>P2: requestCancellation()
+  P2->>P3: validateTicket(pnr)
+  P3->>P4: getTicketDetails(pnr)
+  P4-->>P3: ticketDetails
+  P3-->>P2: displayTicketInfo()
+  P1->>P2: confirmCancellation()
+  P2->>P3: checkCancellationRules(ticket)
+  P3-->>P2: eligibleForCancellation
+  P3->>P5: calculateRefundAmount(ticket)
+  P5-->>P3: refundAmount
+  P3->>P5: updateTicketStatus(pnr, "Cancelled")
+  P5-->>P3: statusUpdated
+  P3->>P6: requestRefund(amount)
+  P6-->>P3: refundSuccess
+  P3->>P5: saveCancellationDetails(pnr)
+  P5-->>P3: cancellationSaved
+  P3->>P7: sendCancellationConfirmation(pnr, refundAmount)
+  P7-->>P3: notificationSent
+  P3-->>P2: displayCancellationSuccess(pnr, refundAmount)
+  P3-->>P2: displayCancellationNotAllowed()
+  P2->>P4: requestPrintReceipt(pnr)
+  P4-->>P2: printReceipt()
+  P3-->>P2: displayRefundFailed()
+```
+
+</details>
+
+### 🔄 Activity Diagrams
+
+<details>
+<summary><b>🎫 Ticket Booking workflow</b> — <code>diagrams/activity/ticket-booking-flow.mdj</code></summary>
+
+```mermaid
+flowchart TD
+  A1(([Start]))
+  A2["Enter search criteria"]
+  A3["Search trains"]
+  A4["Show no-train-found message"]
+  A5["Select train and class"]
+  A6["Enter passenger details"]
+  A7["Check seat availability"]
+  A8["Show waitlist / regret message"]
+  A9["Calculate fare"]
+  A10["Confirm booking"]
+  A11["Initiate payment"]
+  A12["Display payment failure"]
+  A13["Reserve seat and generate PNR"]
+  A14["Display e-ticket"]
+  A15{"?"}
+  A16{"?"}
+  A17{"?"}
+  A18(([End]))
+  A1 --> A2
+  A2 --> A3
+  A3 --> A15
+  A15 --> A4
+  A15 --> A5
+  A4 --> A18
+  A5 --> A6
+  A6 --> A7
+  A7 --> A16
+  A16 --> A8
+  A16 --> A9
+  A8 --> A18
+  A9 --> A10
+  A10 --> A11
+  A11 --> A17
+  A17 --> A12
+  A17 --> A13
+  A12 --> A18
+  A13 --> A14
+  A14 --> A18
+```
+
+</details>
+
+<details>
+<summary><b>💳 Payment workflow</b> — <code>diagrams/activity/payment-flow.mdj</code></summary>
+
+```mermaid
+flowchart TD
+  A1(([Start]))
+  A2["Select payment method"]
+  A3["Create pending transaction"]
+  A4["Redirect to payment gateway"]
+  A5["Enter payment credentials"]
+  A6["Authorize payment'"]
+  A7["Display payment failure details"]
+  A8{"Authorization successful?"}
+  A9["Record transaction"]
+  A10["Generate e-ticket and bill"]
+  A11["Send confirmation notification"]
+  A12(([End]))
+  A1 --> A2
+  A2 --> A3
+  A3 --> A4
+  A4 --> A5
+  A5 --> A6
+  A6 --> A8
+  A8 --> A7
+  A7 --> A4
+  A8 --> A11
+  A8 --> A9
+  A9 --> A10
+  A10 --> A11
+  A11 --> A12
+  A8 --> A12
+```
+
+</details>
+
+### 💬 Communication Diagrams
+
+<details>
+<summary><b>🎫 Ticket Booking collaboration</b> — <code>diagrams/communication/ticket-booking-flow.mdj</code></summary>
+
+```mermaid
+flowchart LR
+  L1["Passenger"]
+  L2["Train Guard"]
+  L3["Passenger profile"]
+  L4["Booking Screen"]
+  L5["Booking Controller"]
+  L6["Booking Record"]
+  L7["Seat Inventory Record (replaces Allocation, kept for inventory linkage)"]
+  L8["External Railway Database"]
+  L9["Booking Receipt"]
+  L1 -->|"1. selectRoute(routeDetails)"| L4
+  L4 -->|"2. startBookingProcess(passengerId, routeId)"| L5
+  L5 -->|"3. getPassengerDetails(passengerId)"| L3
+  L3 -->|"4. passengerProfileData"| L5
+  L6 -->|"5. checkRouteSchedule(routeId, date)"| L5
+  L6 -->|"6. routeScheduleConfirmed"| L5
+  L5 -->|"7. checkSeatAvailability"| L2
+  L2 -->|"8. seatAvailabilityConfirmed"| L5
+  L2 -->|"9. requestPaymentAuthorization"| L5
+  L5 -->|"10. authorizationResult"| L2
+  L5 -->|"11. Message11"| L8
+  L5 -->|"12. transactionRecorded"| L8
+  L5 -->|"13. createBooking"| L8
+  L9 -->|"14. bookingConfirmed"| L8
+  L2 -->|"15. updateSeatStatus"| L5
+  L5 -->|"16. seatStatusUpdated"| L7
+  L5 -->|"17. generateReceipt"| L6
+  L5 -->|"18. receiptGenerated"| L6
+  L5 -->|"19. displayTicketConfirmation()"| L4
+  L4 -->|"20. displayTicketDetailsReport()"| L1
+  L5 -->|"21. notifyPayment(patientid)"| L2
+```
+
+</details>
+
+<details>
+<summary><b>👤 User Registration collaboration</b> — <code>diagrams/communication/user-registration-flow.mdj</code></summary>
+
+```mermaid
+flowchart LR
+  L1["New Customer"]
+  L2["Railway Clerk"]
+  L3["RegistrationScreen"]
+  L4["RegistrationController"]
+  L5["UsernameUniqueCheck"]
+  L6["CredentialSecurity"]
+  L7["UserProfileRules"]
+  L1 -->|"1. submitRegistrationData(profileData, desiredUsername, password)"| L3
+  L3 -->|"2. processNewRegistration(profileData, desiredUsername, password)"| L4
+  L7 -->|"3. validateProfileFormat(profileData)"| L4
+  L4 -->|"4. profileValidated(validationStatus)"| L7
+  L4 -->|"5. checkUsernameReserved()"| L5
+  L4 -->|"6. showApplicantProfileForReview(applicantId, profileData)"| L2
+  L5 -->|"7. checkUsernameReserved()"| L4
+  L2 -->|"8. AdminroveApplicant(applicantId)"| L4
+  L4 -->|"9. offerApplicationNotes(applicantId)"| L2
+  L2 -->|"10. registrationProcessOversightContinued(agentId)"| L4
+  L4 -->|"11. validatePasswordComplexity(password)"| L6
+  L6 -->|"12. passwordValidated(complexityStatus)"| L4
+  L4 -->|"13. presentProfileFormattingOversight(applicantId, profileData)"| L2
+  L2 -->|"14. RegistrationProcessCompleted()"| L4
+  L6 -->|"15. applyPasswordHashing(password)"| L6
+  L5 -->|"16. checkUsernameUniqueness(desiredUsername)"| L4
+  L6 -->|"17. uniqueUsernameReserved()"| L4
+  L4 -->|"18. showRegistrationStatusUI(status)"| L3
+  L3 -->|"19. displayRegistrationSuccessOrErrors(status)"| L1
+  L4 -->|"20. usernameStatus(unique, notUnique)"| L5
+```
+
+</details>
+
 ## 🛠 How to Open the Models
 
 1. Download and install [**StarUML**](https://staruml.io/) (free evaluation, Windows / macOS / Linux).
@@ -785,6 +1143,13 @@ flowchart TB
 - **Refund pipeline** is a first-class concept: cancellation rules → charges → `Refund` object → gateway `processRefund()`.
 - **Gateway-agnostic payments**: the component diagram isolates Razorpay / Stripe / Paytm adapters behind a common `Payment Service`.
 - **Connected-route enquiries**: the enquiry flow handles *direct and connected* train combinations, not just direct trips.
+
+## ✍️ Author
+
+**Venkata Natesh Nallam** — [@NVNATESH](https://github.com/NVNATESH)
+
+[![GitHub](https://img.shields.io/badge/GitHub-%40NVNATESH-181717?logo=github)](https://github.com/NVNATESH)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-venkatanateshnallam-0A66C2?logo=linkedin)](https://in.linkedin.com/in/venkatanateshnallam)
 
 ## 📄 License
 
