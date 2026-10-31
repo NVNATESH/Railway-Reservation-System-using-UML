@@ -1,0 +1,1605 @@
+{
+	"_type": "Project",
+	"_id": "RSB0000000000000005",
+	"name": "Railway Reservation System - Ticket Booking State Machine",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "RSB0000000000000001",
+			"_parent": {
+				"$ref": "RSB0000000000000005"
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLStateMachine",
+					"_id": "RSB0000000000000002",
+					"_parent": {
+						"$ref": "RSB0000000000000001"
+					},
+					"name": "StateMachine_TicketBooking",
+					"ownedElements": [
+						{
+							"_type": "UMLStatechartDiagram",
+							"_id": "RSB0000000000000004",
+							"_parent": {
+								"$ref": "RSB0000000000000002"
+							},
+							"name": "State Machine Diagram - Ticket Booking",
+							"ownedViews": [
+								{
+									"_type": "UMLPseudostateView",
+									"_id": "RSB0000000000000007",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000006"
+									},
+									"subViews": [
+										{
+											"_type": "NodeLabelView",
+											"_id": "RSB0000000000000008",
+											"_parent": {
+												"$ref": "RSB0000000000000007"
+											},
+											"model": {
+												"$ref": "RSB0000000000000006"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 35,
+											"top": 106.5,
+											"height": 13,
+											"alpha": 2.356194490192345,
+											"distance": 20
+										},
+										{
+											"_type": "NodeLabelView",
+											"_id": "RSB0000000000000009",
+											"_parent": {
+												"$ref": "RSB0000000000000007"
+											},
+											"model": {
+												"$ref": "RSB0000000000000006"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 25,
+											"top": 96.5,
+											"height": 13,
+											"alpha": 2.356194490192345,
+											"distance": 35
+										},
+										{
+											"_type": "NodeLabelView",
+											"_id": "RSB0000000000000010",
+											"_parent": {
+												"$ref": "RSB0000000000000007"
+											},
+											"model": {
+												"$ref": "RSB0000000000000006"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 35,
+											"top": 135.5,
+											"height": 13,
+											"alpha": -2.356194490192345,
+											"distance": 20
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"containerChangeable": true,
+									"left": 40,
+									"top": 118,
+									"width": 20,
+									"height": 20,
+									"nameLabel": {
+										"$ref": "RSB0000000000000008"
+									},
+									"stereotypeLabel": {
+										"$ref": "RSB0000000000000009"
+									},
+									"propertyLabel": {
+										"$ref": "RSB0000000000000010"
+									}
+								},
+								{
+									"_type": "UMLStateView",
+									"_id": "RSB0000000000000012",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000011"
+									},
+									"subViews": [
+										{
+											"_type": "UMLNameCompartmentView",
+											"_id": "RSB0000000000000013",
+											"_parent": {
+												"$ref": "RSB0000000000000012"
+											},
+											"model": {
+												"$ref": "RSB0000000000000011"
+											},
+											"subViews": [
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000014",
+													"_parent": {
+														"$ref": "RSB0000000000000013"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"height": 13
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000015",
+													"_parent": {
+														"$ref": "RSB0000000000000013"
+													},
+													"font": "Arial;13;1",
+													"parentStyle": true,
+													"left": 105,
+													"top": 107,
+													"width": 171,
+													"height": 13,
+													"text": "Booking Initiated"
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000016",
+													"_parent": {
+														"$ref": "RSB0000000000000013"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"width": 38.27001953125,
+													"height": 13,
+													"text": "(from )"
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000017",
+													"_parent": {
+														"$ref": "RSB0000000000000013"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"height": 13,
+													"horizontalAlignment": 1
+												}
+											],
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 100,
+											"top": 100,
+											"width": 181,
+											"height": 25,
+											"stereotypeLabel": {
+												"$ref": "RSB0000000000000014"
+											},
+											"nameLabel": {
+												"$ref": "RSB0000000000000015"
+											},
+											"namespaceLabel": {
+												"$ref": "RSB0000000000000016"
+											},
+											"propertyLabel": {
+												"$ref": "RSB0000000000000017"
+											}
+										},
+										{
+											"_type": "UMLInternalActivityCompartmentView",
+											"_id": "RSB0000000000000018",
+											"_parent": {
+												"$ref": "RSB0000000000000012"
+											},
+											"model": {
+												"$ref": "RSB0000000000000011"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"width": 10,
+											"height": 10
+										},
+										{
+											"_type": "UMLInternalTransitionCompartmentView",
+											"_id": "RSB0000000000000019",
+											"_parent": {
+												"$ref": "RSB0000000000000012"
+											},
+											"model": {
+												"$ref": "RSB0000000000000011"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"width": 10,
+											"height": 10
+										},
+										{
+											"_type": "UMLDecompositionCompartmentView",
+											"_id": "RSB0000000000000020",
+											"_parent": {
+												"$ref": "RSB0000000000000012"
+											},
+											"model": {
+												"$ref": "RSB0000000000000011"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 100,
+											"top": 125,
+											"width": 181
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"containerChangeable": true,
+									"left": 100,
+									"top": 100,
+									"width": 180,
+									"height": 60,
+									"nameCompartment": {
+										"$ref": "RSB0000000000000013"
+									},
+									"internalActivityCompartment": {
+										"$ref": "RSB0000000000000018"
+									},
+									"internalTransitionCompartment": {
+										"$ref": "RSB0000000000000019"
+									},
+									"decompositionCompartment": {
+										"$ref": "RSB0000000000000020"
+									}
+								},
+								{
+									"_type": "UMLStateView",
+									"_id": "RSB0000000000000022",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000021"
+									},
+									"subViews": [
+										{
+											"_type": "UMLNameCompartmentView",
+											"_id": "RSB0000000000000023",
+											"_parent": {
+												"$ref": "RSB0000000000000022"
+											},
+											"model": {
+												"$ref": "RSB0000000000000021"
+											},
+											"subViews": [
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000024",
+													"_parent": {
+														"$ref": "RSB0000000000000023"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"height": 13
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000025",
+													"_parent": {
+														"$ref": "RSB0000000000000023"
+													},
+													"font": "Arial;13;1",
+													"parentStyle": true,
+													"left": 385,
+													"top": 107,
+													"width": 171,
+													"height": 13,
+													"text": "Awaiting Payment"
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000026",
+													"_parent": {
+														"$ref": "RSB0000000000000023"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"width": 38.27001953125,
+													"height": 13,
+													"text": "(from )"
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000027",
+													"_parent": {
+														"$ref": "RSB0000000000000023"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"height": 13,
+													"horizontalAlignment": 1
+												}
+											],
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 380,
+											"top": 100,
+											"width": 181,
+											"height": 25,
+											"stereotypeLabel": {
+												"$ref": "RSB0000000000000024"
+											},
+											"nameLabel": {
+												"$ref": "RSB0000000000000025"
+											},
+											"namespaceLabel": {
+												"$ref": "RSB0000000000000026"
+											},
+											"propertyLabel": {
+												"$ref": "RSB0000000000000027"
+											}
+										},
+										{
+											"_type": "UMLInternalActivityCompartmentView",
+											"_id": "RSB0000000000000028",
+											"_parent": {
+												"$ref": "RSB0000000000000022"
+											},
+											"model": {
+												"$ref": "RSB0000000000000021"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"width": 10,
+											"height": 10
+										},
+										{
+											"_type": "UMLInternalTransitionCompartmentView",
+											"_id": "RSB0000000000000029",
+											"_parent": {
+												"$ref": "RSB0000000000000022"
+											},
+											"model": {
+												"$ref": "RSB0000000000000021"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"width": 10,
+											"height": 10
+										},
+										{
+											"_type": "UMLDecompositionCompartmentView",
+											"_id": "RSB0000000000000030",
+											"_parent": {
+												"$ref": "RSB0000000000000022"
+											},
+											"model": {
+												"$ref": "RSB0000000000000021"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 380,
+											"top": 125,
+											"width": 181
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"containerChangeable": true,
+									"left": 380,
+									"top": 100,
+									"width": 180,
+									"height": 60,
+									"nameCompartment": {
+										"$ref": "RSB0000000000000023"
+									},
+									"internalActivityCompartment": {
+										"$ref": "RSB0000000000000028"
+									},
+									"internalTransitionCompartment": {
+										"$ref": "RSB0000000000000029"
+									},
+									"decompositionCompartment": {
+										"$ref": "RSB0000000000000030"
+									}
+								},
+								{
+									"_type": "UMLStateView",
+									"_id": "RSB0000000000000032",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000031"
+									},
+									"subViews": [
+										{
+											"_type": "UMLNameCompartmentView",
+											"_id": "RSB0000000000000033",
+											"_parent": {
+												"$ref": "RSB0000000000000032"
+											},
+											"model": {
+												"$ref": "RSB0000000000000031"
+											},
+											"subViews": [
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000034",
+													"_parent": {
+														"$ref": "RSB0000000000000033"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"height": 13
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000035",
+													"_parent": {
+														"$ref": "RSB0000000000000033"
+													},
+													"font": "Arial;13;1",
+													"parentStyle": true,
+													"left": 665,
+													"top": 107,
+													"width": 161,
+													"height": 13,
+													"text": "Confirmed"
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000036",
+													"_parent": {
+														"$ref": "RSB0000000000000033"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"width": 38.27001953125,
+													"height": 13,
+													"text": "(from )"
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000037",
+													"_parent": {
+														"$ref": "RSB0000000000000033"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"height": 13,
+													"horizontalAlignment": 1
+												}
+											],
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 660,
+											"top": 100,
+											"width": 171,
+											"height": 25,
+											"stereotypeLabel": {
+												"$ref": "RSB0000000000000034"
+											},
+											"nameLabel": {
+												"$ref": "RSB0000000000000035"
+											},
+											"namespaceLabel": {
+												"$ref": "RSB0000000000000036"
+											},
+											"propertyLabel": {
+												"$ref": "RSB0000000000000037"
+											}
+										},
+										{
+											"_type": "UMLInternalActivityCompartmentView",
+											"_id": "RSB0000000000000038",
+											"_parent": {
+												"$ref": "RSB0000000000000032"
+											},
+											"model": {
+												"$ref": "RSB0000000000000031"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"width": 10,
+											"height": 10
+										},
+										{
+											"_type": "UMLInternalTransitionCompartmentView",
+											"_id": "RSB0000000000000039",
+											"_parent": {
+												"$ref": "RSB0000000000000032"
+											},
+											"model": {
+												"$ref": "RSB0000000000000031"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"width": 10,
+											"height": 10
+										},
+										{
+											"_type": "UMLDecompositionCompartmentView",
+											"_id": "RSB0000000000000040",
+											"_parent": {
+												"$ref": "RSB0000000000000032"
+											},
+											"model": {
+												"$ref": "RSB0000000000000031"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 660,
+											"top": 125,
+											"width": 171
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"containerChangeable": true,
+									"left": 660,
+									"top": 100,
+									"width": 170,
+									"height": 60,
+									"nameCompartment": {
+										"$ref": "RSB0000000000000033"
+									},
+									"internalActivityCompartment": {
+										"$ref": "RSB0000000000000038"
+									},
+									"internalTransitionCompartment": {
+										"$ref": "RSB0000000000000039"
+									},
+									"decompositionCompartment": {
+										"$ref": "RSB0000000000000040"
+									}
+								},
+								{
+									"_type": "UMLFinalStateView",
+									"_id": "RSB0000000000000052",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000051"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"containerChangeable": true,
+									"left": 1008,
+									"top": 120,
+									"width": 26,
+									"height": 26
+								},
+								{
+									"_type": "UMLStateView",
+									"_id": "RSB0000000000000064",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000063"
+									},
+									"subViews": [
+										{
+											"_type": "UMLNameCompartmentView",
+											"_id": "RSB0000000000000065",
+											"_parent": {
+												"$ref": "RSB0000000000000064"
+											},
+											"model": {
+												"$ref": "RSB0000000000000063"
+											},
+											"subViews": [
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000066",
+													"_parent": {
+														"$ref": "RSB0000000000000065"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"left": -656,
+													"top": -360,
+													"height": 13
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000067",
+													"_parent": {
+														"$ref": "RSB0000000000000065"
+													},
+													"font": "Arial;13;1",
+													"parentStyle": true,
+													"left": 677,
+													"top": 247,
+													"width": 171,
+													"height": 13,
+													"text": "Booking Failed"
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000068",
+													"_parent": {
+														"$ref": "RSB0000000000000065"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"left": -656,
+													"top": -360,
+													"width": 38.27001953125,
+													"height": 13,
+													"text": "(from )"
+												},
+												{
+													"_type": "LabelView",
+													"_id": "RSB0000000000000069",
+													"_parent": {
+														"$ref": "RSB0000000000000065"
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"parentStyle": true,
+													"left": -656,
+													"top": -360,
+													"height": 13,
+													"horizontalAlignment": 1
+												}
+											],
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 672,
+											"top": 240,
+											"width": 181,
+											"height": 25,
+											"stereotypeLabel": {
+												"$ref": "RSB0000000000000066"
+											},
+											"nameLabel": {
+												"$ref": "RSB0000000000000067"
+											},
+											"namespaceLabel": {
+												"$ref": "RSB0000000000000068"
+											},
+											"propertyLabel": {
+												"$ref": "RSB0000000000000069"
+											}
+										},
+										{
+											"_type": "UMLInternalActivityCompartmentView",
+											"_id": "RSB0000000000000070",
+											"_parent": {
+												"$ref": "RSB0000000000000064"
+											},
+											"model": {
+												"$ref": "RSB0000000000000063"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": -328,
+											"top": -180,
+											"width": 10,
+											"height": 10
+										},
+										{
+											"_type": "UMLInternalTransitionCompartmentView",
+											"_id": "RSB0000000000000071",
+											"_parent": {
+												"$ref": "RSB0000000000000064"
+											},
+											"model": {
+												"$ref": "RSB0000000000000063"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": -328,
+											"top": -180,
+											"width": 10,
+											"height": 10
+										},
+										{
+											"_type": "UMLDecompositionCompartmentView",
+											"_id": "RSB0000000000000072",
+											"_parent": {
+												"$ref": "RSB0000000000000064"
+											},
+											"model": {
+												"$ref": "RSB0000000000000063"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 672,
+											"top": 265,
+											"width": 181
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"containerChangeable": true,
+									"left": 672,
+									"top": 240,
+									"width": 180,
+									"height": 60,
+									"nameCompartment": {
+										"$ref": "RSB0000000000000065"
+									},
+									"internalActivityCompartment": {
+										"$ref": "RSB0000000000000070"
+									},
+									"internalTransitionCompartment": {
+										"$ref": "RSB0000000000000071"
+									},
+									"decompositionCompartment": {
+										"$ref": "RSB0000000000000072"
+									}
+								},
+								{
+									"_type": "UMLTransitionView",
+									"_id": "RSB0000000000000074",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000073"
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000075",
+											"_parent": {
+												"$ref": "RSB0000000000000074"
+											},
+											"model": {
+												"$ref": "RSB0000000000000073"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 29,
+											"top": 172,
+											"width": 129.34619140625,
+											"height": 13,
+											"alpha": -7.545873406511441,
+											"distance": 51.791,
+											"hostEdge": {
+												"$ref": "RSB0000000000000074"
+											},
+											"edgePosition": 1,
+											"text": "initiateBooking(trainId)"
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000076",
+											"_parent": {
+												"$ref": "RSB0000000000000074"
+											},
+											"model": {
+												"$ref": "RSB0000000000000073"
+											},
+											"visible": null,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 81,
+											"top": 92,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 30,
+											"hostEdge": {
+												"$ref": "RSB0000000000000074"
+											},
+											"edgePosition": 1
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000077",
+											"_parent": {
+												"$ref": "RSB0000000000000074"
+											},
+											"model": {
+												"$ref": "RSB0000000000000073"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 79,
+											"top": 136,
+											"height": 13,
+											"alpha": -1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "RSB0000000000000074"
+											},
+											"edgePosition": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "RSB0000000000000012"
+									},
+									"tail": {
+										"$ref": "RSB0000000000000007"
+									},
+									"lineStyle": 1,
+									"points": "61:128;99:129",
+									"showVisibility": true,
+									"nameLabel": {
+										"$ref": "RSB0000000000000075"
+									},
+									"stereotypeLabel": {
+										"$ref": "RSB0000000000000076"
+									},
+									"propertyLabel": {
+										"$ref": "RSB0000000000000077"
+									}
+								},
+								{
+									"_type": "UMLTransitionView",
+									"_id": "RSB0000000000000079",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000078"
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000080",
+											"_parent": {
+												"$ref": "RSB0000000000000079"
+											},
+											"model": {
+												"$ref": "RSB0000000000000078"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 213,
+											"top": 171,
+											"width": 145.74853515625,
+											"height": 13,
+											"alpha": -2.323947607757091,
+											"distance": 65.795,
+											"hostEdge": {
+												"$ref": "RSB0000000000000079"
+											},
+											"edgePosition": 1,
+											"text": "seatsAvailable / holdSeat"
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000081",
+											"_parent": {
+												"$ref": "RSB0000000000000079"
+											},
+											"model": {
+												"$ref": "RSB0000000000000078"
+											},
+											"visible": null,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 330,
+											"top": 94,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 30,
+											"hostEdge": {
+												"$ref": "RSB0000000000000079"
+											},
+											"edgePosition": 1
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000082",
+											"_parent": {
+												"$ref": "RSB0000000000000079"
+											},
+											"model": {
+												"$ref": "RSB0000000000000078"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 330,
+											"top": 139,
+											"height": 13,
+											"alpha": -1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "RSB0000000000000079"
+											},
+											"edgePosition": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "RSB0000000000000022"
+									},
+									"tail": {
+										"$ref": "RSB0000000000000012"
+									},
+									"lineStyle": 1,
+									"points": "281:130;379:130",
+									"showVisibility": true,
+									"nameLabel": {
+										"$ref": "RSB0000000000000080"
+									},
+									"stereotypeLabel": {
+										"$ref": "RSB0000000000000081"
+									},
+									"propertyLabel": {
+										"$ref": "RSB0000000000000082"
+									}
+								},
+								{
+									"_type": "UMLTransitionView",
+									"_id": "RSB0000000000000094",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000093"
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000095",
+											"_parent": {
+												"$ref": "RSB0000000000000094"
+											},
+											"model": {
+												"$ref": "RSB0000000000000093"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 576,
+											"top": 72,
+											"width": 188.59521484375,
+											"height": 13,
+											"alpha": 0.7140906161248561,
+											"distance": 79.39773296511683,
+											"hostEdge": {
+												"$ref": "RSB0000000000000094"
+											},
+											"edgePosition": 1,
+											"text": "paymentSuccess / generatePNR"
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000096",
+											"_parent": {
+												"$ref": "RSB0000000000000094"
+											},
+											"model": {
+												"$ref": "RSB0000000000000093"
+											},
+											"visible": null,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 610,
+											"top": 94,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 30,
+											"hostEdge": {
+												"$ref": "RSB0000000000000094"
+											},
+											"edgePosition": 1
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000097",
+											"_parent": {
+												"$ref": "RSB0000000000000094"
+											},
+											"model": {
+												"$ref": "RSB0000000000000093"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 610,
+											"top": 139,
+											"height": 13,
+											"alpha": -1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "RSB0000000000000094"
+											},
+											"edgePosition": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "RSB0000000000000032"
+									},
+									"tail": {
+										"$ref": "RSB0000000000000022"
+									},
+									"lineStyle": 1,
+									"points": "561:130;659:130",
+									"showVisibility": true,
+									"nameLabel": {
+										"$ref": "RSB0000000000000095"
+									},
+									"stereotypeLabel": {
+										"$ref": "RSB0000000000000096"
+									},
+									"propertyLabel": {
+										"$ref": "RSB0000000000000097"
+									}
+								},
+								{
+									"_type": "UMLTransitionView",
+									"_id": "RSB0000000000000099",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000098"
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000100",
+											"_parent": {
+												"$ref": "RSB0000000000000099"
+											},
+											"model": {
+												"$ref": "RSB0000000000000098"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 435,
+											"top": 241,
+											"width": 165.4833984375,
+											"height": 13,
+											"alpha": -4.235836322039609,
+											"distance": 28,
+											"hostEdge": {
+												"$ref": "RSB0000000000000099"
+											},
+											"edgePosition": 1,
+											"text": "paymentFailed / releaseSeat"
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000101",
+											"_parent": {
+												"$ref": "RSB0000000000000099"
+											},
+											"model": {
+												"$ref": "RSB0000000000000098"
+											},
+											"visible": null,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 530,
+											"top": 236,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 30,
+											"hostEdge": {
+												"$ref": "RSB0000000000000099"
+											},
+											"edgePosition": 1
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000102",
+											"_parent": {
+												"$ref": "RSB0000000000000099"
+											},
+											"model": {
+												"$ref": "RSB0000000000000098"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 530,
+											"top": 281,
+											"height": 13,
+											"alpha": -1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "RSB0000000000000099"
+											},
+											"edgePosition": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "RSB0000000000000064"
+									},
+									"tail": {
+										"$ref": "RSB0000000000000022"
+									},
+									"points": "530:160;530:272;672:272",
+									"showVisibility": true,
+									"nameLabel": {
+										"$ref": "RSB0000000000000100"
+									},
+									"stereotypeLabel": {
+										"$ref": "RSB0000000000000101"
+									},
+									"propertyLabel": {
+										"$ref": "RSB0000000000000102"
+									}
+								},
+								{
+									"_type": "UMLTransitionView",
+									"_id": "RSB0000000000000124",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "RSB0000000000000123"
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000125",
+											"_parent": {
+												"$ref": "RSB0000000000000124"
+											},
+											"model": {
+												"$ref": "RSB0000000000000123"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 1065,
+											"top": 226,
+											"width": 105.47265625,
+											"height": 13,
+											"alpha": -1.25234838836876,
+											"distance": 101.14,
+											"hostEdge": {
+												"$ref": "RSB0000000000000124"
+											},
+											"edgePosition": 1,
+											"text": "notifyPassenger"
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000126",
+											"_parent": {
+												"$ref": "RSB0000000000000124"
+											},
+											"model": {
+												"$ref": "RSB0000000000000123"
+											},
+											"visible": null,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 991,
+											"top": 257,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 30,
+											"hostEdge": {
+												"$ref": "RSB0000000000000124"
+											},
+											"edgePosition": 1
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "RSB0000000000000127",
+											"_parent": {
+												"$ref": "RSB0000000000000124"
+											},
+											"model": {
+												"$ref": "RSB0000000000000123"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 1036,
+											"top": 258,
+											"height": 13,
+											"alpha": -1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "RSB0000000000000124"
+											},
+											"edgePosition": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "RSB0000000000000052"
+									},
+									"tail": {
+										"$ref": "RSB0000000000000064"
+									},
+									"points": "852:264;1021:264;1021:146",
+									"showVisibility": true,
+									"nameLabel": {
+										"$ref": "RSB0000000000000125"
+									},
+									"stereotypeLabel": {
+										"$ref": "RSB0000000000000126"
+									},
+									"propertyLabel": {
+										"$ref": "RSB0000000000000127"
+									}
+								},
+								{
+									"_type": "UMLTransitionView",
+									"_id": "AAAAAAGg807yLnRmntc=",
+									"_parent": {
+										"$ref": "RSB0000000000000004"
+									},
+									"model": {
+										"$ref": "AAAAAAGg807yLnRllyc="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGg807yLnRnesg=",
+											"_parent": {
+												"$ref": "AAAAAAGg807yLnRmntc="
+											},
+											"model": {
+												"$ref": "AAAAAAGg807yLnRllyc="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 919,
+											"top": 111,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "AAAAAAGg807yLnRmntc="
+											},
+											"edgePosition": 1
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGg807yLnRospI=",
+											"_parent": {
+												"$ref": "AAAAAAGg807yLnRmntc="
+											},
+											"model": {
+												"$ref": "AAAAAAGg807yLnRllyc="
+											},
+											"visible": null,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 919,
+											"top": 96,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 30,
+											"hostEdge": {
+												"$ref": "AAAAAAGg807yLnRmntc="
+											},
+											"edgePosition": 1
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGg807yLnRpk4o=",
+											"_parent": {
+												"$ref": "AAAAAAGg807yLnRmntc="
+											},
+											"model": {
+												"$ref": "AAAAAAGg807yLnRllyc="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 918,
+											"top": 140,
+											"height": 13,
+											"alpha": -1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "AAAAAAGg807yLnRmntc="
+											},
+											"edgePosition": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "RSB0000000000000052"
+									},
+									"tail": {
+										"$ref": "RSB0000000000000032"
+									},
+									"lineStyle": 1,
+									"points": "831:131;1007:133",
+									"showVisibility": true,
+									"nameLabel": {
+										"$ref": "AAAAAAGg807yLnRnesg="
+									},
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGg807yLnRospI="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGg807yLnRpk4o="
+									}
+								}
+							]
+						}
+					],
+					"regions": [
+						{
+							"_type": "UMLRegion",
+							"_id": "RSB0000000000000003",
+							"_parent": {
+								"$ref": "RSB0000000000000002"
+							},
+							"vertices": [
+								{
+									"_type": "UMLPseudostate",
+									"_id": "RSB0000000000000006",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"kind": "initial"
+								},
+								{
+									"_type": "UMLState",
+									"_id": "RSB0000000000000011",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "Booking Initiated"
+								},
+								{
+									"_type": "UMLState",
+									"_id": "RSB0000000000000021",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "Awaiting Payment"
+								},
+								{
+									"_type": "UMLState",
+									"_id": "RSB0000000000000031",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "Confirmed"
+								},
+								{
+									"_type": "UMLState",
+									"_id": "RSB0000000000000041",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "Cancelled"
+								},
+								{
+									"_type": "UMLFinalState",
+									"_id": "RSB0000000000000051",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									}
+								},
+								{
+									"_type": "UMLState",
+									"_id": "RSB0000000000000053",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "Waitlisted"
+								},
+								{
+									"_type": "UMLState",
+									"_id": "RSB0000000000000063",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "Booking Failed"
+								}
+							],
+							"transitions": [
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000073",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "initiateBooking(trainId)",
+									"source": {
+										"$ref": "RSB0000000000000006"
+									},
+									"target": {
+										"$ref": "RSB0000000000000011"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000078",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "seatsAvailable / holdSeat",
+									"source": {
+										"$ref": "RSB0000000000000011"
+									},
+									"target": {
+										"$ref": "RSB0000000000000021"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000083",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "seatsUnavailable / addToWaitlist",
+									"source": {
+										"$ref": "RSB0000000000000011"
+									},
+									"target": {
+										"$ref": "RSB0000000000000053"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000088",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "payWaitlistFare / createPendingTransaction",
+									"source": {
+										"$ref": "RSB0000000000000053"
+									},
+									"target": {
+										"$ref": "RSB0000000000000021"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000093",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "paymentSuccess / generatePNR",
+									"source": {
+										"$ref": "RSB0000000000000021"
+									},
+									"target": {
+										"$ref": "RSB0000000000000031"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000098",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "paymentFailed / releaseSeat",
+									"source": {
+										"$ref": "RSB0000000000000021"
+									},
+									"target": {
+										"$ref": "RSB0000000000000063"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000103",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "berthAllotted [chart prepared] / issueTicket",
+									"source": {
+										"$ref": "RSB0000000000000053"
+									},
+									"target": {
+										"$ref": "RSB0000000000000031"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000108",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "notConfirmed [chart prepared] / refundFare",
+									"source": {
+										"$ref": "RSB0000000000000053"
+									},
+									"target": {
+										"$ref": "RSB0000000000000063"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000113",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "cancelTicket / initiateRefund",
+									"source": {
+										"$ref": "RSB0000000000000031"
+									},
+									"target": {
+										"$ref": "RSB0000000000000041"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000118",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "refundProcessed",
+									"source": {
+										"$ref": "RSB0000000000000041"
+									},
+									"target": {
+										"$ref": "RSB0000000000000051"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "RSB0000000000000123",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"name": "notifyPassenger",
+									"source": {
+										"$ref": "RSB0000000000000063"
+									},
+									"target": {
+										"$ref": "RSB0000000000000051"
+									}
+								},
+								{
+									"_type": "UMLTransition",
+									"_id": "AAAAAAGg807yLnRllyc=",
+									"_parent": {
+										"$ref": "RSB0000000000000003"
+									},
+									"source": {
+										"$ref": "RSB0000000000000031"
+									},
+									"target": {
+										"$ref": "RSB0000000000000051"
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"documentVersion": 1
+}
